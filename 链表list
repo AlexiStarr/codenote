@@ -1,1 +1,20 @@
+1. 链表种类：
+· 单链表
+· 双链表
+· 循环链表
+      解决约瑟夫环问题（就是报到N就出去，直到所有人出局为止，求出局顺序）
 
+2. 存储 ： 通过指针域的指针链接在内存中的各个节点，在内存中散乱分布
+
+3. 定义
+struct ListNode{
+    int val;
+    ListNode* next;
+    ListNode(int _val):val(_val) , next(nullptr){}//构造函数
+};
+  事实上如果不定义构造函数也可以使用，C++会默认生成一个构造函数，因此可以直接用 ListNode* node = new ListNode();来生成链表节点。
+  但是有一个bug:如果不定义构造函数使用默认构造函数的话，在初始化的时候就不能直接给变量赋值！
+  意思是：如果定义了构造函数就可以直接 ListNode* node = new ListNode(5);初始化节点并赋值；
+          使用默认构造函数： ListNode* node = new ListNode(); node -> val = 5;
+
+4. 链表的增删都只需要改变链表中指针的指向即可。

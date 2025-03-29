@@ -15,3 +15,5 @@
           当 scanf 遇到输入错误或者到达输入流的末尾返回 EOF（通常是 -1）时：
               取反后的值为 ~(-1) 变为 0，这使得 while 条件为假，从而退出循环。
       因此可用while(~scanf("%d",&a))来进行循环输入
+  - INT_MAX INT_MIN会用到头文件#include <climits>
+  - 求绝对值 x = abs();

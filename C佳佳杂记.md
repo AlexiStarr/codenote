@@ -17,3 +17,5 @@
       因此可用while(~scanf("%d",&a))来进行循环输入
   - INT_MAX INT_MIN会用到头文件#include <climits>
   - 求绝对值 x = abs();
+  - stl对于std::vector< bool>进行了模板特化，其行为和性能不如其它容器一致，应当避免使用。  
+    可以适当替换为std::vector< char>，std::vector<uint8_t>, std::bitset。

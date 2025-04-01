@@ -19,3 +19,8 @@
   - 求绝对值 x = abs();
   - stl对于std::vector< bool>进行了模板特化，其行为和性能不如其它容器一致，应当避免使用。  
     可以适当替换为std::vector< char>，std::vector<uint8_t>, std::bitset。
+  - void *memset(void *str, int c, size_t n) 用于将一段内存区域设置为指定的值。(在清空内存区域或者为内存区域赋值时)
+    ```
+    void *memset(void *str, int c, size_t n)
+    ```
+    eg: memset(next, 0, sizeof(next)); // 将next数组初始化为nullptr

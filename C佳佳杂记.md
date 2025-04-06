@@ -15,12 +15,20 @@
           当 scanf 遇到输入错误或者到达输入流的末尾返回 EOF（通常是 -1）时：
               取反后的值为 ~(-1) 变为 0，这使得 while 条件为假，从而退出循环。
       因此可用while(~scanf("%d",&a))来进行循环输入
-  - INT_MAX INT_MIN会用到头文件#include <climits>
-  - 求绝对值 x = abs();
-  - stl对于std::vector< bool>进行了模板特化，其行为和性能不如其它容器一致，应当避免使用。  
-    可以适当替换为std::vector< char>，std::vector<uint8_t>, std::bitset。
-  - void *memset(void *str, int c, size_t n) 用于将一段内存区域设置为指定的值。(在清空内存区域或者为内存区域赋值时)
-    ```
-    void *memset(void *str, int c, size_t n)
-    ```
-    eg: memset(next, 0, sizeof(next)); // 将next数组初始化为nullptr
+- INT_MAX INT_MIN会用到头文件#include <climits>
+- 求绝对值 x = abs();
+- stl对于std::vector< bool>进行了模板特化，其行为和性能不如其它容器一致，应当避免使用。  
+  可以适当替换为std::vector< char>，std::vector<uint8_t>, std::bitset。
+- void *memset(void *str, int c, size_t n) 用于将一段内存区域设置为指定的值。(在清空内存区域或者为内存区域赋值时)
+  ```
+  void *memset(void *str, int c, size_t n)
+  ```
+  eg: memset(next, 0, sizeof(next)); // 将next数组初始化为nullptr
+- lambda函数写法
+  1. ![image](https://github.com/user-attachments/assets/d482aa76-6432-4e9b-bee7-a512b433b5ed)
+     占用内存小 ，快
+  3. ![image](https://github.com/user-attachments/assets/ec2b2917-df9d-47f7-aeb2-7e8208cadceb)
+     占用内存大
+  3. 
+
+

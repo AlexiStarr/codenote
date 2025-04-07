@@ -26,9 +26,10 @@
   eg: memset(next, 0, sizeof(next)); // 将next数组初始化为nullptr
 - lambda函数写法
   1. ![image](https://github.com/user-attachments/assets/d482aa76-6432-4e9b-bee7-a512b433b5ed)
-     占用内存小 ，快
+     占用内存小 ，快  
+     其实这里的 -> void 可以省略 ， 但如果是其他的返回值就不能省略了
   3. ![image](https://github.com/user-attachments/assets/ec2b2917-df9d-47f7-aeb2-7e8208cadceb)
      占用内存大
-  3. 
+  
 
 

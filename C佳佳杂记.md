@@ -30,6 +30,18 @@
      其实这里的 -> void 可以省略 ， 但如果是其他的返回值就不能省略了
   3. ![image](https://github.com/user-attachments/assets/ec2b2917-df9d-47f7-aeb2-7e8208cadceb)
      占用内存大
+- 转换字母大小写
+  ```
+  char c = 'a';
+  c = toupper(c);
+  char c = 'A';
+  c = tolower(c);
+
+  c ^= 32;(异或操作 ， 能将大写转换为小写 ， 小写转换为大写)。
+  ```
+- 检查字母类型
+    - isdigit(c) 检查是否是数字
+    - isalpha(c) 检查是否是字母
   
 
 

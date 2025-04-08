@@ -98,3 +98,6 @@
       
        int array3[func_constexpr(10,rand())]; // ERROR - even though func_constexpr() is the 'constexpr' function, the expression 'constexpr(10,rand())' can't be evaluated at compile time.
        ```
+- 整数转化为小数
+    - 隐式转换 num*1.0
+    - 强制转换 static_cast<float>(num)

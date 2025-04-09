@@ -108,3 +108,19 @@
       scanf("%s" , s);
       ```
     或者使用 std::cin 直接读取 string 类型。PS：cin和scanf都读取的是不含空格的字符串。
+- 根据vector数组中的某一项进行排序：  
+  使用 std::sort 函数来对 rec 进行排序。我们传入 rec.begin() 和 rec.end() 来指定排序的范围。  
+  使用 lambda 表达式作为第三个参数来定义排序的规则。
+  ```
+  #include <vector>
+  #include <algorithm>
+  #include <iostream>
+  using namespace std;
+
+  int main(){
+    vector<vector<int>> rec(5 , vector<int>(3 , 0));
+    sort(rec.begin() , rec.end() , [](const vector<int>& a , const vector<int>& b){
+      return a[1] > b[1]; // 按降序排
+    });//根据rec[i][1]的值进行排序
+  }
+  ```

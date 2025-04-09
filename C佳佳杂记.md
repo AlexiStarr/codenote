@@ -101,3 +101,10 @@
 - 整数转化为小数
     - 隐式转换 num*1.0
     - 强制转换 static_cast<float>(num)
+- 读取string类型
+    scanf 不能直接读取 std::string 类型。只能使用字符数组（char[]）来接收输入。
+      ```
+      char s[20];
+      scanf("%s" , s);
+      ```
+    或者使用 std::cin 直接读取 string 类型。PS：cin和scanf都读取的是不含空格的字符串。

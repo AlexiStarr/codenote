@@ -1,15 +1,37 @@
 ## 字符串相关函数
 1. 字符串长度 length、size
-2. 反转字符串 reserve
-3. 交换字符串中字符位置 swap
-4. 对字符串进行排序 sort
-5. 扩充字符串大小 resize 
-6. 删除元素 erase 注意：erase的时间复杂度是O(n)
-7. find函数：  
+2. 反转字符串 reserve  
+          ```
+          reverse(s.begin() , s.end());  
+          也可以只翻转一部分，在上面的基础上加减就行
+          ```
+4. 交换字符串中字符位置 swap
+5. 对字符串进行排序 sort  
+          ```
+          sort(s.begin() , s.end());
+          ```
+7. 扩充字符串大小 resize 
+8. 删除元素 erase 注意：erase的时间复杂度是O(n)
+9. find函数：
        find(a) , find(a , 1)从第二个字符开始找；  
        rfind() , 倒着找；  
        如果没找到，会返回npos；  
-       返回值是int类型，返回的值是字符串下标；  
+       返回值是int类型，返回的值是字符串下标；
+11. to_string 函数：将十进制数字常量转换为字符串，返回值为转换完毕的字符串  
+          string s = to_string(i); //将整数i转换为字符串表示形式
+12. compare函数比较两字符串是否相等  
+          若参与比较的两个串值相同，则函数返回 0；若字符串 S 按字典顺序要先于 S2，则返回负值；反之，则返回正值。  
+       ```  
+       int result = s1.compare(s2);  
+       int result = s1.compare(3, 3, s2);//从索引3开始的三个字符跟s2比较  
+       const char* s2 = "hello";  
+       int result = s1.compare(s2); // 比较 s1 和 C 字符串 s2  
+       int result = s1.compare(3, 3, s2 , 5 , 2);
+       ```
+14. stoi函数将字符串转为十进制数字
+           stoi（字符串，起始位置，n进制（默认10进制）），将 n 进制的字符串转化为十进制
+           默认情况下，stoi 假定字符串是十进制数字。如果字符串以 "0x" 或 "0X" 开头，则会相应地解释为十六进制。
+           
 ##  ※ KMP算法
 ### KMP经典思想就是:
 当出现字符串不匹配时，可以记录一部分之前已经匹配的文本内容，利用这些信息避免从头再去做匹配。

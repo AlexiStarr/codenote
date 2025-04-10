@@ -15,19 +15,19 @@
           当 scanf 遇到输入错误或者到达输入流的末尾返回 EOF（通常是 -1）时：
               取反后的值为 ~(-1) 变为 0，这使得 while 条件为假，从而退出循环。
       因此可用while(~scanf("%d",&a))来进行循环输入
-- INT_MAX INT_MIN会用到头文件#include <climits>
-- 求绝对值 x = abs();
-- stl对于std::vector< bool>进行了模板特化，其行为和性能不如其它容器一致，应当避免使用。  
-  可以适当替换为std::vector< char>，std::vector<uint8_t>, std::bitset。
-- void *memset(void *str, int c, size_t n) 用于将一段内存区域设置为指定的值。(在清空内存区域或者为内存区域赋值时)
+- ``INT_MAX``、 ``INT_MIN``会用到头文件 ``#include <climits>``
+- 求绝对值 ``x = abs();``
+- stl对于``std::vector< bool>``进行了模板特化，其行为和性能不如其它容器一致，应当避免使用。  
+  可以适当替换为``std::vector< char>，std::vector<uint8_t>, std::bitset``。
+- ``void *memset(void *str, int c, size_t n)`` 用于将一段内存区域设置为指定的值。(在清空内存区域或者为内存区域赋值时)
   ```
   void *memset(void *str, int c, size_t n)
   ```
   eg: memset(next, 0, sizeof(next)); // 将next数组初始化为nullptr
-- lambda函数写法
+- lambda函数写法``头文件#include <funtional> #include <algorithm>``
   1. ![image](https://github.com/user-attachments/assets/d482aa76-6432-4e9b-bee7-a512b433b5ed)
      占用内存小 ，快  
-     其实这里的 -> void 可以省略 ， 但如果是其他的返回值就不能省略了
+     其实这里的 ``-> void`` 可以省略 ， 但如果是其他的返回值就不能省略了
   3. ![image](https://github.com/user-attachments/assets/ec2b2917-df9d-47f7-aeb2-7e8208cadceb)
      占用内存大
 - 转换字母大小写
@@ -40,8 +40,8 @@
   c ^= 32;(异或操作 ， 能将大写转换为小写 ， 小写转换为大写)。
   ```
 - 检查字母类型
-    - isdigit(c) 检查是否是数字
-    - isalpha(c) 检查是否是字母
+    - ``isdigit(c)`` 检查是否是数字
+    - ``isalpha(c)`` 检查是否是字母
 - bitset 位图
     - 位图是一种直接定址法的哈希，因此效率很高，用O(1)就可以探测到对应位是0还是1，效率非常高。
 - const & constexpr
@@ -99,17 +99,17 @@
        int array3[func_constexpr(10,rand())]; // ERROR - even though func_constexpr() is the 'constexpr' function, the expression 'constexpr(10,rand())' can't be evaluated at compile time.
        ```
 - 整数转化为小数
-    - 隐式转换 num*1.0
-    - 强制转换 static_cast<float>(num)
+    - 隐式转换 ``num*1.0``
+    - 强制转换 ``static_cast<float>(num)``
 - 读取string类型
-    scanf 不能直接读取 std::string 类型。只能使用字符数组（char[]）来接收输入。
+    scanf 不能直接读取 ``std::string`` 类型。只能使用字符数组（char[]）来接收输入。
       ```
       char s[20];
       scanf("%s" , s);
       ```
-    或者使用 std::cin 直接读取 string 类型。PS：cin和scanf都读取的是不含空格的字符串。
+    或者使用 ``std::cin`` 直接读取 string 类型。PS：cin和scanf都读取的是不含空格的字符串。
 - 根据vector数组中的某一项进行排序：  
-  使用 std::sort 函数来对 rec 进行排序。我们传入 rec.begin() 和 rec.end() 来指定排序的范围。  
+  使用 ``std::sort`` 函数来对 rec 进行排序。我们传入 rec.begin() 和 rec.end() 来指定排序的范围。  
   使用 lambda 表达式作为第三个参数来定义排序的规则。
   ```
   #include <vector>
@@ -124,4 +124,37 @@
     });//根据rec[i][1]的值进行排序
   }
   ```
-  - 对于基本类型（如 int、char），直接传值更高效，但对于 std::string 这种可能包含动态内存的对象，传引用更优。
+  - 对于基本类型（如 int、char），直接传值更高效，但对于 ``std::string`` 这种可能包含动态内存的对象，传引用更优。
+  - 头文件``#include <sstream>``用法
+    1. istringstream
+       用于从字符串中读取数据（像stoi()）
+       ```
+       string data = "12 12.1";
+       istringstream iss(data);
+       int num1;
+       double num2;
+       iss >> num1 >> num2;
+       ```
+    2. ostringstream
+       用于将数据写入字符串（像to_string()）
+       ```
+       ostringstream oss;
+       int num = 1;
+       double f = 2.32;
+       oss << i << " " << f;
+       string res = oss.str();
+       // res = "1 2.32";
+       ```
+    3. stringstream
+       stringstream是istringstream和ostringstream的组合，可以同时进行读取和写入操作。
+       ```
+       string data = "32 3.1412";
+       stringstream ss(data);
+       int i;
+       double d;
+       ss >> i >> d;
+       ss.str(); // 清空ss
+       ss << "new data :" << " huawei " << 20 << 25.4;
+       string res = ss.str();
+       // res = "new data : huawei 2025.4";
+       ```

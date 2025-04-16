@@ -2,6 +2,20 @@
 1. 内存空间地址连续
 2. 数组元素不能删除只能覆盖，所谓的删除也只是将数组内所有元素前移而已
 3. C++中二维数组在地址上的空间也是连续的
+## 基本操作
+1. resize
+2. push_back()
+3. pop_back()
+4. front()
+5. back()
+6. reduce(nums.begin() , nums.end())
+7. sort(nums.begin() , nums.end())
+8. reverse(nums.begin() , nums.end())
+9. 复制nums数组的[l , r]:
+    ```
+    vector<int> left(nums.begin() + l , nums.begin() + r + 1);
+    ```
+10. swap
 ## 经典题目
 - 二分法
   - 写法一 : 左闭右闭
@@ -51,6 +65,9 @@
     - 注意：直接使用 (left + right) / 2 可能会导致整数溢出，尤其是在 left 和 right 都很大的情况下。  
       例如，如果 left 和 right 都接近 INT_MAX（整型最大值），left + right 的结果可能会超过 INT_MAX，导致未定义行为或产生错误的索引。  
       通过先计算 right - left，然后再加上 left，可以有效避免这个问题。
+- 归并排序  
+    分治思想：先分再合  
+    可以用来处理逆序对问题
 - 双指针
   - 快慢指针（都是从头开始）
   - 对撞指针（头尾指针）

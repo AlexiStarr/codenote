@@ -158,3 +158,9 @@
        string res = ss.str();
        // res = "new data : huawei 2025.4";
        ```
+- 有序容器都适用的：
+  ```
+  lower_bound(nums.begin(),nums.end(),target)大于等于的第一个
+  upper_bound(nums.begin(),nums.end(),target)大于第一个
+  ```
+  头文件是``#include algorithm``,数组，vector，map，set都能用

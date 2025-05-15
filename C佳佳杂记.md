@@ -164,3 +164,34 @@
   upper_bound(nums.begin(),nums.end(),target)大于第一个
   ```
   头文件是``#include algorithm``,数组，vector，map，set都能用
+- 输出指定位数的小数
+  ```
+  //方法一：
+  double d;
+  cin >> d;
+  cout << fixed << setprecision(3) << d << endl;//三位小数
+  ```
+  fixed是强制以小数类型输出，setprecision(n)设置小数点后保留n位，自动四舍五入。  
+  头文件为``#include <iomanip>``
+  ```
+  //方法二：
+  double d;
+  scanf("%lf",&d);
+  printf("%.3f",d);//输出三位小数
+  ```
+  直接使用C风格输入输出
+- 输出指定位数的整数，不足前面补零
+  ```
+  //方法一：
+  int n;
+  cin >> n;
+  cout << setw(9) << setfill('0') << n << endl;
+  ```
+  setw表示指定输出宽度，setfill('0')用零填充左侧空缺；
+  ```
+  //方法二：
+  int n;
+  scanf(%d , &n);
+  print("%09d", n);
+  ```
+  C风格

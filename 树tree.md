@@ -4,6 +4,9 @@
     ![image](https://github.com/user-attachments/assets/8f4a25c3-6ecb-452d-9f06-20db0499cc23)
 - 完全二叉树（集中在左边 , 且除了最后一层全部填满）
     ![image](https://github.com/user-attachments/assets/c5f420c8-02cc-40d8-a00f-ed450332855f)
+      - 叶子结点数的计算：（n + 1）/2;
+      - 叶子结点数=度为2的结点数+1；
+      - 度为1的结点数要么为0要么为1
 - 二叉搜索树
 - 平衡二叉搜索树
   

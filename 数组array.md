@@ -9,14 +9,22 @@
 4. front()
 5. back()
 6. reduce(nums.begin() , nums.end())
-7. sort(nums.begin() , nums.end())
-8. reverse(nums.begin() , nums.end())
-9. 复制nums数组的[l , r]:
+   c++17引入，头文件是``#include <numeric>``,类似accumulate但是效率更高
+   ```
+   vector<int> rec;
+   int sum = reduce(rec.begin() , rec.end() , 0);//求和，默认是plus<>()
+   int product = reduce(rec.begin() , rec.end() , 1 , multiplies<>());//求乘积
+   int max_val = reduce(rec.begin() , rec.end() , rec[0] , [](int a , int b){
+       return (a > b)? a : b;});
+   ```
+8. sort(nums.begin() , nums.end())
+9. reverse(nums.begin() , nums.end())
+10. 复制nums数组的[l , r]:
     ```
     vector<int> left(nums.begin() + l , nums.begin() + r + 1);
     ```
     因为结尾的迭代器指向的是当前最后一个元素的下一个
-10. swap
+11. swap
 ## 经典题目
 - 二分法
   - 写法一 : 左闭右闭

@@ -15,6 +15,7 @@
     ```
     vector<int> left(nums.begin() + l , nums.begin() + r + 1);
     ```
+    因为结尾的迭代器指向的是当前最后一个元素的下一个
 10. swap
 ## 经典题目
 - 二分法

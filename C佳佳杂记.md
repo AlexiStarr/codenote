@@ -199,3 +199,15 @@
   ```
   typeid(var).name();
   ```
+- 生成随机数
+  - rand()产生的随机数在每次运行的时候都是与上一次相同的，这是有意这样设计的，是为了便于程序的调试。
+  - 如果要生成每次不同的随机数，可以采用srand(seed)函数生成随机种子
+     ```
+     #include <iostream>
+     #include <time.h>
+     using namespace std;
+     int main(){
+       srand(time(0));//生成以当前时间开始的随机种子
+       cout << rand()%11 << endl;//生成每次不重复的从0-10的随机数
+     }
+     ``` 

@@ -85,16 +85,18 @@
               while (left < right) { //left == right 时找到target
                   int middle = left + ((right - left) >> 1);// 防止溢出 等同于(left + right)/2
                   if (nums[middle] < target) {
-                      left = middle + 1; // target 在左区间，所以[middle + 1, right]
+                      left = middle + 1; // target 在左区间，所以[middle + 1, right)
+                      //注意：如果在二分中写到left = middle，那就需要考虑向上取整，因此为了方便一般避免这种情况。
                   } else {
-                      left = middle + 1; // target 在右区间，所以[middle + 1, right]
+                      right = middle; // target 在右区间，所以[left, middle)
                   }
               }
               // 未找到目标值
               return nums[left] == target ? left : -1;
           }
       };
-     
+   - 在二分算法中，常常遇到旋转数组问题，对于旋转数组的二分，最好以nums.back()【即最后一个数】为参照，这样不容易出错。
+      - 如果以第一个数为参照可能会出现整个数组仍旧是一个顺序数组的情况，这样就会出现问题。
 - 归并排序  
     分治思想：先分再合  
     可以用来处理逆序对问题

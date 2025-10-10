@@ -75,6 +75,26 @@
       例如，如果 left 和 right 都接近 INT_MAX（整型最大值），left + right 的结果可能会超过 INT_MAX，导致未定义行为或产生错误的索引。  
       通过先计算 right - left，然后再加上 left，可以有效避免这个问题。
     - 二分查找就是时间复杂度为O(log(n))的优秀算法
+  - 写法三 0-n
+    ```
+    class Solution {
+      public:
+          int search(vector<int>& nums, int target) {
+              int left = 0;
+              int right = nums.size(); // 定义target在左闭右开的区间里，[left, right)
+              while (left < right) { //left == right 时找到target
+                  int middle = left + ((right - left) >> 1);// 防止溢出 等同于(left + right)/2
+                  if (nums[middle] < target) {
+                      left = middle + 1; // target 在左区间，所以[middle + 1, right]
+                  } else {
+                      left = middle + 1; // target 在右区间，所以[middle + 1, right]
+                  }
+              }
+              // 未找到目标值
+              return nums[left] == target ? left : -1;
+          }
+      };
+     
 - 归并排序  
     分治思想：先分再合  
     可以用来处理逆序对问题

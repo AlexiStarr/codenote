@@ -95,6 +95,27 @@
               return nums[left] == target ? left : -1;
           }
       };
+    ```
+   - 写法四 -1 - n
+     ```
+     class Solution {
+      public:
+          int search(vector<int>& nums, int target) {
+              int left = -1;
+              int right = nums.size(); // 定义target在左开右开的区间里，(left, right)
+              while (left + 1 < right) { //left == right - 1 时找到target
+                  int middle = left + ((right - left) >> 1);// 防止溢出 等同于(left + right)/2
+                  if (nums[middle] < target) {
+                      left = middle; // target 在左区间，所以(middle, right)
+                  } else {
+                      right = middle; // target 在右区间，所以(left, middle)
+                  }
+              }
+              // 未找到目标值
+              return nums[right] == target ? right : -1;
+          }
+      };
+     ```
    - 在二分算法中，常常遇到旋转数组问题，对于旋转数组的二分，最好以nums.back()【即最后一个数】为参照，这样不容易出错。
       - 如果以第一个数为参照可能会出现整个数组仍旧是一个顺序数组的情况，这样就会出现问题。
 - 归并排序  
